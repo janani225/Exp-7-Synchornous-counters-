@@ -90,29 +90,31 @@ RegisterNumber: 212222230050
 
 # UP COUNTER:
 ```
-module exp6(A,clk);
-output reg [3:0]A;
+module up(clk,A);
 input clk;
+output reg [3:0]A;
 always@(posedge clk)
 begin
-A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
-A[1]=(((A[2])&(A[3]))^A[1]);
-A[2]=((A[3])^A[2]);
-A[3]=1^A[3];
+A[3]=((A[2]&A[1])&A[0])^A[3];
+A[2]=(A[1]&A[0])^A[2];
+A[1]=(A[0]^A[1]);
+A[0]=1^A[0];
 end
 endmodule
+
 ```
 
 # DOWN COUNTER:
 ```
-module exp6(A,clk);
-output reg [3:0]A;
+
+module down(clk,A);
 input clk;
-always@(posedge clk)
+output reg [3:0]A;
+always @(posedge clk)
 begin
-A[3]=((((~A[2])&(~A[1]))&(~A[0]))^A[3]);
-A[2]=(((~A[1])&(~A[0]))^A[2]);
-A[1]=((~A[0])^A[1]);
+A[3]=((~A[2])&(~A[1])&(~A[0]))^A[3];
+A[2]=((~A[1])&(~A[0]))^A[2];
+A[1]=(~A[0])^A[1];
 A[0]=1^A[0];
 end
 endmodule
@@ -125,10 +127,12 @@ endmodule
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 # UP COUNTER:
-![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/b9027081-eb3a-4870-911d-4b7ca5eefc8d)
+![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/b19b8c79-2b68-4abf-9492-b68d08fdd988)
+
 
 # DOWN COUNTER:
-![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/d1b06dfc-7eb0-446a-aa90-c03c69c00162)
+
+![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/10cc5d4a-1f60-44e3-bbec-eb92346dc49c)
 
 
 
@@ -142,10 +146,12 @@ endmodule
 
 ### TIMING DIGRAMS FOR COUNTER  
 # UP COUNTER:
-![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/70cf4a23-9350-4058-85db-248002cf4dd8)
+![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/bee2304e-4229-484a-9a1f-73457d5e6ac0)
+
 
 # DOWN COUNTER:
-![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/a97fafd0-b06e-4c62-afe0-08cf8f411569)
+![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/9cf3c080-865a-462d-9572-bf436e2d0f55)
+
 
 
 
@@ -156,10 +162,12 @@ endmodule
 ### TRUTH TABLE 
 
 # UP COUNTER:
-![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/3ca11749-c3e0-4f95-9d20-d6636d7d5d73)
+![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/815a92ac-f6f6-4bb8-acea-572f915fc787)
+
 
 # DOWN COUNTER:
-![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/b6de52ed-664b-46a7-9ecd-f9bdfb9eb513)
+![image](https://github.com/janani225/Exp-7-Synchornous-counters-/assets/113497333/61db7eb0-bc80-4b51-a87d-ac96807618d6)
+
 
 
 
